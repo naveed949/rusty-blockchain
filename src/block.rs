@@ -59,4 +59,12 @@ impl Block {
         let transactions = vec![transaction.clone()];
         return Block::new_block(String::from("None"), &transactions, 0);
     }
+    pub fn deserialize(bytes: &[u8]) -> Block {
+        bincode::deserialize(bytes).unwrap()
+    }
+
+   
+    pub fn serialize(&self) -> Vec<u8> {
+        bincode::serialize(self).unwrap().to_vec()
+    }
 }
