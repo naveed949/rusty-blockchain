@@ -2,6 +2,7 @@ use crate::transaction::Transaction;
 use crate::pow::ProofOfWork;
 use crate::utils;
 use serde::{Serialize, Deserialize};
+use sled::IVec;
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Block {
@@ -66,5 +67,12 @@ impl Block {
    
     pub fn serialize(&self) -> Vec<u8> {
         bincode::serialize(self).unwrap().to_vec()
+    }
+}
+
+impl From<Block> for IVec {
+    fn from(b: Block) -> Self {
+        let bytes = bincode::serialize(&b).unwrap();
+        Self::from(bytes)
     }
 }
