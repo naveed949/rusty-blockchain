@@ -10,8 +10,8 @@ pub use utxo_set::UTXOSet;
 mod proof_of_work;
 use proof_of_work::ProofOfWork;
 
-mod transaction;
-pub use transaction::Transaction;
+mod transactions;
+pub use transactions::Transaction;
 
 mod wallet;
 pub use wallet::convert_address;

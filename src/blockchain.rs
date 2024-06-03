@@ -1,6 +1,6 @@
 
-use crate::transaction::TXOutput;
-use crate::{block::Block, transaction::Transaction};
+use crate::transactions::TXOutput;
+use crate::{block::Block, transactions::Transaction};
 use data_encoding::HEXLOWER;
 use sled::transaction::TransactionResult;
 use sled::{Db, Tree};
