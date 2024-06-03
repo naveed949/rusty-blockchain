@@ -7,7 +7,7 @@ pub use blockchain::Blockchain;
 mod utxo_set;
 pub use utxo_set::UTXOSet;
 
-mod proof_of_work;
+mod proof_of_work;ß
 use proof_of_work::ProofOfWork;
 
 mod transactions;
