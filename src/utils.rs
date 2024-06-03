@@ -1,6 +1,6 @@
 
 use std::time::{SystemTime, UNIX_EPOCH};
-use sha2::Sha256;
+use crypto::sha2::Sha256;
 
 pub fn current_timestamp() -> u64 {
     let start = SystemTime::now();

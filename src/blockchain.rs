@@ -1,4 +1,3 @@
-//  blockchain.rs
 
 use crate::transaction::TXOutput;
 use crate::{block::Block, transaction::Transaction};
@@ -77,11 +76,6 @@ impl Blockchain {
         *tip_hash = String::from(new_tip_hash)
     }
 
-    // let us move the iterator code up for readability of the users ?
-    // pub fn iterator(&self) -> BlockchainIterator {
-    //     BlockchainIterator::new(self.get_tip_hash(), self.db.clone())
-    // }
-  
     pub fn mine_block(&self, transactions: &[Transaction]) -> Block {
         for trasaction in transactions {
             if trasaction.verify(self) == false {
@@ -103,10 +97,6 @@ impl Blockchain {
         BlockchainIterator::new(self.get_tip_hash(), self.db.clone())
     }
     
-    // can we add the BlockchainIterator here so that the readers can follow easily
-
-
-
    // ( K -> txid_hex, V -> Vec<TXOutput )
     pub fn find_utxo(&self) -> HashMap<String, Vec<TXOutput>> {
         let mut utxo: HashMap<String, Vec<TXOutput>> = HashMap::new();

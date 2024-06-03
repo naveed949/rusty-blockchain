@@ -1,6 +1,4 @@
-use crate::transaction::Transaction;
-use crate::pow::ProofOfWork;
-use crate::utils;
+use crate::{Transaction, ProofOfWork, current_timestamp, sha256_digest};
 use serde::{Serialize, Deserialize};
 use sled::IVec;
 
@@ -17,7 +15,7 @@ pub struct Block {
 impl Block {
     pub fn new_block(pre_block_hash: String, transactions: &[Transaction], height: usize) -> Block {
         let mut block = Block {
-            timestamp: utils::current_timestamp(),
+            timestamp: current_timestamp(),
             pre_block_hash,
             hash: String::new(),
             transactions: transactions.to_vec(),
@@ -54,7 +52,7 @@ impl Block {
         for transaction in &self.transactions {
             txhashs.extend(transaction.get_id());
         }
-        utils::sha256_digest(txhashs.as_slice())
+        sha256_digest(txhashs.as_slice())
     }
     pub fn generate_genesis_block(transaction: &Transaction) -> Block {
         let transactions = vec![transaction.clone()];
