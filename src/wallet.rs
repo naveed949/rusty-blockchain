@@ -3,7 +3,7 @@ use ring::signature::{EcdsaKeyPair, KeyPair, ECDSA_P256_SHA256_FIXED_SIGNING};
 use serde::{Deserialize, Serialize};
 
 const VERSION: u8 = 0x00;
-pub const ADDRESS_CHECK_SUM_LEN: usize = 4;
+pub const ADDRESS_CHECK_SUM_LEN: usize = 4; // 4 bytes checksum - 32 bits
 
 #[derive(Clone, Serialize, Deserialize)]
 pub struct Wallet {
