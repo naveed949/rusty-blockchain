@@ -10,8 +10,8 @@ pub use utxo_set::UTXOSet;
 mod pow;
 use pow::ProofOfWork;
 
-mod transactions;
-pub use transactions::Transaction;
+mod transaction;
+pub use transaction::Transaction;
 
 mod wallet;
 pub use wallet::convert_address;
@@ -19,9 +19,7 @@ pub use wallet::hash_pub_key;
 pub use wallet::validate_address;
 pub use wallet::Wallet;
 pub use wallet::ADDRESS_CHECK_SUM_LEN;
-
-mod wallets;
-pub use wallets::Wallets;
+pub use wallet::Wallets;
 
 mod server;
 pub use server::send_tx;
